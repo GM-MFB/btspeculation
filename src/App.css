@@ -1,0 +1,69 @@
+body {
+    background-color: #e0e0e0;
+}
+
+.watchlist {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid black; /* Ensure this is more specific */
+}
+
+.watchliststock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.watchliststock h4,
+.watchliststock p {
+    margin: 0; /* Reset margin for h4 and p elements */
+    padding: 0; /* Reset padding for h4 and p elements */
+    flex: 1; /* Ensure h4 and p take available space */
+    text-align: center; /* Center text */
+}
+
+.watchliststock:hover {
+    background-color: #f0f0f0;
+}
+
+.llgoff {
+    background-color: rgb(240, 10, 10);
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.llgon {
+    background-color: rgb(60, 240, 10);
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.llgset {
+    background-color: rgb(2, 72, 170);
+    width: 10px;
+    height: 10px;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.llgdots {
+    display: flex;
+    justify-content: space-between;
+    margin: 1px;
+}
+
+.llgdots p {
+    margin: 1px;
+}
