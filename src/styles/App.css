@@ -2,8 +2,24 @@ body {
     background-color: #e0e0e0;
 }
 
+.App {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: scroll;
+}
+
+
+
 .watchlist {
     width: 30%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     padding: 10px;
@@ -34,36 +50,40 @@ body {
     background-color: #f0f0f0;
 }
 
+.watchlistTitle {
+    text-align: center;
+}
+.watchlistButton {
+    margin-bottom: 5px;
+}
+
 .llgoff {
     background-color: rgb(240, 10, 10);
-    width: 10px;
-    height: 10px;
+    width:  12px;
+    height:  12px;
     border: 1px solid black;
     border-radius: 50%;
 }
-
 .llgon {
     background-color: rgb(60, 240, 10);
-    width: 10px;
-    height: 10px;
+    width:  12px;
+    height:  12px;
     border: 1px solid black;
     border-radius: 50%;
 }
-
 .llgset {
     background-color: rgb(2, 72, 170);
-    width: 10px;
-    height: 10px;
+    width:  12px;
+    height:  12px;
     border: 1px solid black;
     border-radius: 50%;
 }
-
 .llgdots {
     display: flex;
     justify-content: space-between;
     margin: 1px;
-}
 
-.llgdots p {
-    margin: 1px;
+    p {
+        margin: 1px;
+    }
 }

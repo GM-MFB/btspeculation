@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import './App.css';
+import '../styles/App.css';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 
 function App() {
@@ -25,6 +25,8 @@ function App() {
         WatchListAdd: false
     });
 
+    
+
     const toggle = () => setState({ ...State, WatchListAdd: !State.WatchListAdd });
 
     const HandleWishlistInputChange = (e) => {
@@ -38,35 +40,60 @@ function App() {
         });
     };
 
-    const HandleWishlistAdd = (event) => {
+    const HandleWishlistAdd = async (event) => {
         event.preventDefault();
-        console.log(State.TempWatchList);
-        setState({
-            ...State,
-            Tickers: [
-                ...State.Tickers,
-                State.TempWatchList
-            ],
-            TempWatchList: {
-                symbol: '',
-                close: 0,
-                Shares: 0,
-                LikeIt: 0,
-                LoveIt: 0,
-                GotToHaveIt: 0
-            },
-            WatchListAdd: false
-        });
     
-        var response = fetch(`https://api.polygon.io/v2/aggs/ticker/${State.TempWatchList.symbol}/prev?adjusted=true`, {
-            headers: {
-                'Authorization': `Bearer ${process.env.REACT_APP_POLYGON_API_KEY}`
+        const newTicker = State.TempWatchList;
+    
+        try {
+            const response = await fetch(`https://api.polygon.io/v2/aggs/ticker/${newTicker.symbol}/prev?adjusted=true`, {
+                headers: {
+                    'Authorization': `Bearer ${process.env.REACT_APP_POLYGON_API_KEY}`
+                }
+            });
+    
+            const data = await response.json();
+    
+            if (data.results && data.results.length > 0) {
+                newTicker.close = data.results[0].c;
             }
-        }).then(response => response.json())
+    
+            setState({
+                ...State,
+                Tickers: [
+                    ...State.Tickers,
+                    newTicker
+                ],
+                TempWatchList: {
+                    symbol: '',
+                    close: 0,
+                    Shares: 0,
+                    LikeIt: 0,
+                    LoveIt: 0,
+                    GotToHaveIt: 0
+                },
+                WatchListAdd: false
+            });
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
 
-        
-
-    }
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setState({
+                    ...State,
+                    selectedImage: file,
+                    imageUrl: reader.result
+                });
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+    
     const fetchData = async () => {
         const newTickers = [ ...State.Tickers ];
 
@@ -138,8 +165,9 @@ function App() {
             </Modal>
 
             <div className='watchlist'>
-                <button onClick={fetchData}>Fetch Data</button>
-                <button onClick={toggle}>Add Stock</button>
+                <h2 className='watchlistTitle'>Watchlist</h2>
+                <button className='watchlistButton' onClick={fetchData}>Fetch Data</button>
+                <button className='watchlistButton' onClick={toggle}>Add Stock</button>
 
                 {Array.isArray(State.Tickers) && State.Tickers.map((ticker, index) => (
                     <div className='watchliststock' key={index}>
@@ -154,6 +182,13 @@ function App() {
                     </div>
                 ))}
             </div>
+
+            <div className='main'>
+                <h1 className='title'>Brown Town Speculation</h1>
+                <input type="file" accept="image/*" onChange={handleImageChange} />
+                {State.imageUrl && <img src={State.imageUrl} alt="Selected" style={{ maxWidth: '100%', height: 'auto' }} />}
+            </div>
+
         </div>
     );
 }
