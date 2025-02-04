@@ -1,0 +1,34 @@
+.calendar {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(7, 1fr); /* 7 columns */
+    grid-template-rows: auto repeat(6, 1fr); /* Header row height auto, rest equally divided */
+    gap: 0;
+    box-sizing: border-box;
+}
+
+/* Header row: spans all 7 columns */
+.header-row {
+    display: contents; /* Allows children to follow grid rules */
+    height: 20px;
+    margin-top: 1rem;
+}
+
+.header {
+    font-weight: bold;
+    background-color: darkgray;
+    text-align: center;
+    height: 50px;
+}
+
+/* Calendar cells */
+.day {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+    border: 1px solid black;
+    box-sizing: border-box;
+    width: 100%;
+    aspect-ratio: 1; /* Keeps cells square */
+}

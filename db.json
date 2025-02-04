@@ -1,0 +1,78 @@
+{
+  "WatchList": [
+    {
+      "Symbol": "AAPL",
+      "Close": 228.01,
+      "Shares": "100",
+      "LikeIt": "225",
+      "LoveIt": "210",
+      "GotToHaveIt": "200",
+      "id": 1
+    },
+    {
+      "Symbol": "KO",
+      "Close": 63.35,
+      "Shares": "100",
+      "LikeIt": "225",
+      "LoveIt": "210",
+      "GotToHaveIt": "200",
+      "id": 2
+    },
+    {
+      "Symbol": "TSLA",
+      "Close": 383.68,
+      "Shares": "100",
+      "LikeIt": "225",
+      "LoveIt": "210",
+      "GotToHaveIt": "200",
+      "id": 3
+    },
+    {
+      "Symbol": "GE",
+      "Close": 204.11,
+      "Shares": "100",
+      "LikeIt": "225",
+      "LoveIt": "210",
+      "GotToHaveIt": "200",
+      "id": 4
+    },
+    {
+      "Symbol": "MSFT",
+      "Close": 410.92,
+      "Shares": "100",
+      "LikeIt": "420",
+      "LoveIt": "400",
+      "GotToHaveIt": "390",
+      "id": 5
+    },
+    {
+      "Symbol": "GME",
+      "Close": 25.89,
+      "Shares": "100",
+      "LikeIt": "225",
+      "LoveIt": "210",
+      "GotToHaveIt": "200",
+      "id": 6
+    },
+    {
+      "Symbol": "F",
+      "Close": 9.89,
+      "Shares": "100",
+      "LikeIt": "225",
+      "LoveIt": "210",
+      "GotToHaveIt": "200",
+      "id": 7
+    },
+    {
+      "Symbol": "UBER",
+      "Close": 67.29,
+      "Shares": "100",
+      "LikeIt": "225",
+      "LoveIt": "210",
+      "GotToHaveIt": "200",
+      "id": 8
+    }
+  ],
+  "Calendar": [],
+  "Trades": []
+}

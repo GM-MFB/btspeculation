@@ -2,7 +2,7 @@ body {
     background-color: #e0e0e0;
 }
 
-.App {
+.Home {
     display: flex;
     height: 100vh;
     width: 100vw;
@@ -14,8 +14,6 @@ body {
     width: 100%;
     overflow: scroll;
 }
-
-
 
 .watchlist {
     width: 30%;
@@ -36,6 +34,7 @@ body {
     padding: 10px;
     cursor: pointer;
     border-bottom: 1px solid #e0e0e0;
+    border-radius: 5px;
 }
 
 .watchliststock h4,
@@ -47,7 +46,8 @@ body {
 }
 
 .watchliststock:hover {
-    background-color: #f0f0f0;
+    color: white;
+    background-color: #1f3c20;
 }
 
 .watchlistTitle {
